@@ -1,0 +1,92 @@
+body {
+  text-align: center;
+  background-image: url("Pictures/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+h1 {
+  color: #ff7675;
+  font-size: 5rem;
+  /*font-family: 'Bona Nova', serif;*/
+  font-family: "Merriweather", serif;
+  text-shadow: 3px 0 #00cec9;
+  letter-spacing: 3px;
+}
+
+p{
+  font-size:2rem;
+  font-weight: bolder;
+  color: black;
+  font-family: "Sacramento", cursive;
+  position :absolute;
+  letter-spacing: 2px;
+  bottom:80px;
+  left:50px
+}
+
+.container {
+  text-align: right;
+  color: black;
+  padding-top: 10px;
+  padding-right: 30px;
+  width: 450px;
+  height: 350px;
+  /* background: linear-gradient(0.25turn,#448ADB, #ebf8e1, #B0A99F);*/
+  font-family: "Merriweather", serif;
+  box-shadow: 10px 5px 5px grey;
+  border-radius: 15px;
+  position: relative;
+  left: 400px;
+  top: 30px;
+  font-size: 13px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+.container:hover {
+  transform:scale(1.1);
+  background: linear-gradient(0.25turn, #448adb, #ebf8e1, #b0a99f);
+}
+
+#cityName {
+  font-weight: bold;
+  display: block;
+  font-size: 2rem;
+}
+
+.img {
+  width: 180px;
+  height: 180px;
+  float:left;
+}
+
+label {
+  font-size: 20px;
+  font-family: "Arvo", cursive;
+  margin-right: 5px;
+}
+.city {
+  width: 400px;
+  height: 35px;
+  margin: auto 20px;
+  box-shadow: 3px 5px;
+  border-radius: 10px;
+}
+.search {
+  width: 100px;
+  height: 30px;
+  display: inline;
+  font-style: bold;
+  font-size: 1rem;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 3px 5px;
+  font-family: Arial, serif;
+}
+.search:active {
+  color: skyblue;
+}
