@@ -1,10 +1,11 @@
 body {
-  text-align: center;
   background-image: url("Pictures/background.jpg");
+  text-align: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  width:100vw;
 }
 
 h1 {
@@ -15,16 +16,15 @@ h1 {
   text-shadow: 3px 0 #00cec9;
   letter-spacing: 3px;
 }
-
-p{
-  font-size:2rem;
+p {
+  font-size: 2rem;
   font-weight: bolder;
   color: black;
   font-family: "Sacramento", cursive;
-  position :absolute;
+  position: absolute;
   letter-spacing: 2px;
-  bottom:80px;
-  left:50px
+  bottom: 80px;
+  left: 50px;
 }
 
 .container {
@@ -32,9 +32,8 @@ p{
   color: black;
   padding-top: 10px;
   padding-right: 30px;
-  width: 450px;
+  width: 35%;
   height: 350px;
-  /* background: linear-gradient(0.25turn,#448ADB, #ebf8e1, #B0A99F);*/
   font-family: "Merriweather", serif;
   box-shadow: 10px 5px 5px grey;
   border-radius: 15px;
@@ -47,20 +46,20 @@ p{
   transition-timing-function: ease-in-out;
 }
 .container:hover {
-  transform:scale(1.1);
+  transform: scale(1.1);
   background: linear-gradient(0.25turn, #448adb, #ebf8e1, #b0a99f);
+}
+
+.img {
+  width: 180px;
+  height: 180px;
+  float: left;
 }
 
 #cityName {
   font-weight: bold;
   display: block;
   font-size: 2rem;
-}
-
-.img {
-  width: 180px;
-  height: 180px;
-  float:left;
 }
 
 label {
@@ -89,4 +88,78 @@ label {
 }
 .search:active {
   color: skyblue;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+  .container {
+    display: block;
+    font-size: 10px;
+    width: 70%;
+    height: 45%;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    padding-right: 10px;
+  }
+
+  .img {
+    width: 110px;
+    height: 110px;
+    float: left;
+    margin-left: 30px;
+  }
+  p {
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 110px;
+    left: 55px;
+  }
+  .city {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 800px) {
+  .container {
+    width: 60%;
+    height: 50%;
+    font-size: 0.7rem;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+  }
+  .img {
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin-left: 30px;
+  }
+  p {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 120px;
+    left: 50px;
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+  .container {
+    width: 45%;
+    height: 50%;
+    font-size: 0.7rem;
+    position: absolute;
+    left: 28%;
+    top: 50%;
+  }
+  .img {
+    width: 140px;
+    height: 140px;
+    float: left;
+  }
+  p {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 100px;
+    left: 35px;
+  }
 }
