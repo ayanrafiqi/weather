@@ -3,7 +3,7 @@ const replacedURL = url.replace("#", "&");
 const finalURL = new URLSearchParams(replacedURL);
 var accessToken = finalURL.get("access_token");
 var idToken = finalURL.get("id_token");
-
+console.log(accessToken);
 aws_region = "us-east-1";
 AWS.config.region = aws_region;
 /*
