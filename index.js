@@ -6,20 +6,17 @@ var idToken = finalURL.get("id_token");
 console.log(accessToken);
 aws_region = "us-east-1";
 AWS.config.region = aws_region;
-/*
-AWS.config.apiVersions = {
-  cognitoidentityserviceprovider: "2016-04-18",
-};
 
-// var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
 
-/*var params = {
-  AccessToken: accessToken,
-};*/
+
 document.querySelectorAll(".search")[0].addEventListener("click", () => {
   var cityName = document.querySelector(".city").value;
   weather(cityName);
 });
+
+//fetch('https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp',
+
+//headers:)
 
 async function weather(cityName) {
   try {
@@ -27,7 +24,7 @@ async function weather(cityName) {
       `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,
       {
         headers: {
-          authentication: accessToken,
+          'authentication': accessToken,
         },
       }
     ).then((r) => r.json());
