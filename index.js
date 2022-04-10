@@ -14,20 +14,19 @@ document.querySelectorAll(".search")[0].addEventListener("click", () => {
   weather(cityName);
 });
 
-//fetch('https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp',
+/*fetch('https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp',{
+   method:GET,
+    headers:{
+      
+    }
+}*/
 
-//headers:)
 
 async function weather(cityName) {
   try {
-    var results = await fetch(
-      `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,
-      {
-        headers: {
-          'authentication': accessToken,
-        },
-      }
-    ).then((r) => r.json());
+    var results = await fetch(`https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,{
+      headers:{"authentication":accessToken}
+    }).then((r) => r.json());
     //console.log(results);
     // console.log(Object.keys(results).length);
     renderResults(results);
