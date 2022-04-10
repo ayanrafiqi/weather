@@ -27,7 +27,7 @@ async function weather(cityName) {
       `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,
       {
         headers: {
-          Authentication: accessToken,
+          authentication: accessToken,
         },
       }
     ).then((r) => r.json());
