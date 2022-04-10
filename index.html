@@ -11,15 +11,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="weather.ico">
+    
+
 </head>
 
 <body>
+   
     <h1>Weather</h1>
 
-        <input type="text" class="city" placeholder="Enter City Name">
-        <input type="submit" class="search" value="Search">
-    
+    <input type="text" class="city" placeholder="Enter City Name">
+    <input type="submit" class="search" value="Search">
+
     <div></div>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.834.0.min.js"></script>
+    <script src="js/amazon-cognito-auth.min.js"></script>
+   
+    <script src="js/amazon-cognito-identity.min.js"></script>  
+  
     <script src="index.js"></script>
 </body>
 

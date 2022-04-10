@@ -1,3 +1,21 @@
+const url = window.location.href;
+const replacedURL = url.replace("#", "&");
+const finalURL = new URLSearchParams(replacedURL);
+var accessToken = finalURL.get("access_token");
+var idToken = finalURL.get("id_token");
+
+aws_region = "us-east-1";
+AWS.config.region = aws_region;
+/*
+AWS.config.apiVersions = {
+  cognitoidentityserviceprovider: "2016-04-18",
+};
+
+// var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
+
+/*var params = {
+  AccessToken: accessToken,
+};*/
 document.querySelectorAll(".search")[0].addEventListener("click", () => {
   var cityName = document.querySelector(".city").value;
   weather(cityName);
@@ -6,7 +24,12 @@ document.querySelectorAll(".search")[0].addEventListener("click", () => {
 async function weather(cityName) {
   try {
     var results = await fetch(
-      `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`
+      `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,
+      {
+        headers: {
+          Authentication: accessToken,
+        },
+      }
     ).then((r) => r.json());
     //console.log(results);
     // console.log(Object.keys(results).length);
@@ -32,27 +55,35 @@ const renderResults = (results) => {
   let html = "";
   var count = Object.keys(results).length;
   if (results && count === 1) {
-    let htmlSegment = `<div><h2 style="color :red;text-align :center; font-size:2rem;">Sorry, No Data found!!<h2></div>`;
-    html += htmlSegment;
+    //let htmlSegment = `<div><h2 style="color :red;text-align :center; font-size:2rem;">Sorry, No Data found!!<h2></div>`;
+    //html += htmlSegment;
+    for (const key in results) {
+      let htmlSegment = `<div>
+                         <img src='' alt='' />
+                         <p></p>
+                        <h2>${key} ${results[key]} </h2>
+                            </div>`;
+
+      html += htmlSegment;
+    }
   }
 
   if (results && count > 1) {
     for (const key in results) {
       let htmlSegment = `<div>
-                   <img src='' alt='' />
-                   <p></p>
-                  <h2>${key} ${results[key]} </h2>
-                      </div>`;
+                         <img src='' alt='' />
+                         <p></p>
+                        <h2>${key} ${results[key]} </h2>
+                            </div>`;
 
       html += htmlSegment;
     }
   }
 
   addDiv(html);
- 
 };
 
-function addDiv(html){
+function addDiv(html) {
   var divv = document.querySelectorAll("div")[0];
   divv.classList.add("container");
   let container = document.querySelector(".container");
