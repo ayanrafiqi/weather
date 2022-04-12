@@ -5,10 +5,6 @@ var accessToken = finalURL.get("access_token");
 var idToken = finalURL.get("id_token");
 aws_region = "us-east-1";
 
-
-var newurl =fetch('https://weather-domain-service.auth.us-east-1.amazoncognito.com/login?client_id=7hlg9dn47i6akaj2ak7choh3i6&response_type=token')
-.then((res)=>console.log(res));
-
 document.querySelectorAll(".search")[0].addEventListener("click", () => {
   var cityName = document.querySelector(".city").value;
   weather(cityName);
