@@ -3,35 +3,28 @@ const replacedURL = url.replace("#", "&");
 const finalURL = new URLSearchParams(replacedURL);
 var accessToken = finalURL.get("access_token");
 var idToken = finalURL.get("id_token");
-console.log(accessToken);
 aws_region = "us-east-1";
-AWS.config.region = aws_region;
 
 
+var newurl =fetch('https://weather-domain-service.auth.us-east-1.amazoncognito.com/login?client_id=7hlg9dn47i6akaj2ak7choh3i6&response_type=token')
+.then((res)=>console.log(res));
 
 document.querySelectorAll(".search")[0].addEventListener("click", () => {
   var cityName = document.querySelector(".city").value;
   weather(cityName);
 });
 
-/*fetch('https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp',{
-   method:"GET",
-   parameters:{
-     'key': cityName},
-    headers:{
-      'authorization': 'Bearer ' + accessToken
-    },
-}
-)*/
-
 async function weather(cityName) {
   try {
-    var results = await fetch(`https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,{
-      method: "GET",   
-    headers:{
-        'authorization': 'Bearer ' + accessToken
-      },
-    }).then((r) => r.json());
+    var results = await fetch(
+      `https://1yteiky3ul.execute-api.us-east-1.amazonaws.com/test/temp?city=${cityName}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: "Bearer " + accessToken,
+        },
+      }
+    ).then((r) => r.json());
     //console.log(results);
     // console.log(Object.keys(results).length);
     renderResults(results);
