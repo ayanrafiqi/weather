@@ -2,8 +2,8 @@ const url = window.location.href;
 const replacedURL = url.replace("#", "&");
 const finalURL = new URLSearchParams(replacedURL);
 var accessToken = finalURL.get("access_token");
-var idToken = finalURL.get("id_token");
-aws_region = "us-east-1";
+var cognitoUser = userPool.getCurrentUser();
+
 
 document.querySelectorAll(".search")[0].addEventListener("click", () => {
   var cityName = document.querySelector(".city").value;
